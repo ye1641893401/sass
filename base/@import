@@ -1,0 +1,18 @@
+@import
+大多数情况下，一般在文件的最外层（不在嵌套规则内）使用 @import，其实，也可以将 @import 嵌套进 CSS 样式或者 @media 中，与平时的用法效果相同，只是这样导入的样式只能出现在嵌套的层中。
+
+假设 example.scss 文件包含以下样式：
+
+.example {
+  color: red;
+}
+然后导入到 #main 样式内
+
+#main {
+  @import "example";
+}
+将会被编译为
+
+#main .example {
+  color: red;
+}

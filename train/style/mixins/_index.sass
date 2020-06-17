@@ -1,0 +1,17 @@
+@mixin retina-border($dir:'',$style:'solid',$color:map-get($split,L01)) {
+  @if $dir == ''{
+    border:1px #{$style} #{$color};
+  } @else {
+    border-#{dir}:1px #{style} #{$color}
+  }
+
+  @for $i from 2 through 4 {
+    @media only screen and (min-resolution:#{$i}dppx){
+      @if $dir == '' {
+        border-width:#{1/$i}px;
+      }@else {
+        border-#{$dir}-width:#{1/$i}px;
+      }
+    }
+  }
+}

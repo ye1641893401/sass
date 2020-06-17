@@ -1,0 +1,23 @@
+插值语句 #{} (Interpolation: #{})
+通过 #{} 插值语句可以在选择器或属性名中使用变量：
+
+$name: foo;
+$attr: border;
+p.#{$name} {
+  #{$attr}-color: blue;
+}
+编译为
+
+p.foo {
+  border-color: blue; }
+#{} 插值语句也可以在属性值中插入 SassScript，大多数情况下，这样可能还不如使用变量方便，但是使用 #{} 可以避免 Sass 运行运算表达式，直接编译 CSS。
+
+p {
+  $font-size: 12px;
+  $line-height: 30px;
+  font: #{$font-size}/#{$line-height};
+}
+编译为
+
+p {
+  font: 12px/30px; }
