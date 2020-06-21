@@ -1,3 +1,61 @@
+@mixin fonts($weight,$size,$height){
+  @if $weight == EZS {
+    font-weight:normal;
+  } @else {
+    font-weight:bold;
+  }
+
+  font-size:#{$size}px;
+  line-height:#{$height}px;
+}
+
+@mixin color($name) {
+  color:map-get($text,$name);
+  caret-color:map-get($text,$name);
+}
+
+@mixin nohover {
+  @media (hover:none){
+    &:hover,
+    &:focus{
+      &::before{
+        opacity:0!important;
+      }
+    }
+  }
+}
+@mixin retina ($dir:''){
+   @for $i from 2 throungh 4 {
+     @media only screen and (min-resolution:#{$i}dppx){
+       @if $dir == ''{
+         transform:scale(#{1/$i},#{1/$i})
+       } @else {
+         transform:unquote('scale#{dir}(#{1/$i})')
+       }
+     }
+   }
+}
+
+@mixin ellipsis {
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+@mixin background-image($image){
+  @each $name $value in $dpi {
+    @media only screen and (min-resolution:#{$value}dppx){
+      background-image:('../../assets/iamage/#{$name}/#{$image}');
+    }
+  }
+}
+@mixin hide-scrollbar {
+  -ms-overflow-style:none;
+  scrollbar-width:none;
+  &::-webkit-scrollbar {
+    display:none;
+  }
+}
 @mixin retina-border($dir:'',$style:'solid',$color:map-get($split,L01)) {
   @if $dir == ''{
     border:1px #{$style} #{$color};
