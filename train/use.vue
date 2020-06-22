@@ -17,6 +17,8 @@
     @include retina-border(top)
   }
 }
+
+$font('N1')
 </style>
 
 

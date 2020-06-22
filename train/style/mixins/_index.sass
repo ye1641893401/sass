@@ -9,6 +9,9 @@
   line-height:#{$height}px;
 }
 
+@mixin font($name){
+  @include fonts(map-get($fonts,$name)...)
+}
 @mixin color($name) {
   color:map-get($text,$name);
   caret-color:map-get($text,$name);
