@@ -19,6 +19,17 @@
 }
 
 $font('N1')
+
+map-get($fonts,"N1")
+
+@mixin when($state){
+  @at-root{
+    &.#{'is-'+$state}{
+      @content;
+    }
+  }
+}
+
 </style>
 
 
