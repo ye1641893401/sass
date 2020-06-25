@@ -28,7 +28,7 @@
   }
 }
 @mixin retina ($dir:''){
-   @for $i from 2 throungh 4 {
+   @for $i from 2 through 4 {
      @media only screen and (min-resolution:#{$i}dppx){
        @if $dir == ''{
          transform:scale(#{1/$i},#{1/$i})
@@ -46,7 +46,7 @@
 }
 
 @mixin background-image($image){
-  @each $name $value in $dpi {
+  @each $name,$value in $dpi {
     @media only screen and (min-resolution:#{$value}dppx){
       background-image:('../../assets/iamage/#{$name}/#{$image}');
     }
