@@ -1,0 +1,26 @@
+$page-error:(
+    no-data:'page-no-data.svg',
+    offline:'page-offline.svg',
+    no-right:'page-no-right.svg'
+);
+
+$page-error-not-wp:(
+    no-data:'page-no-data_wp.svg',
+    offline:'page-offline_wp.svg',
+);
+
+$card-error:(
+    load-error:'load-error.svg',
+    network-error:'network-error.svg',
+    no-data:'no-data.svg',
+    offline:'page-offline_wp.svg',
+);
+
+
+@each $error,$image in $card-error {
+    &--#{$error}{
+        .mx-default__icon {
+            background-image:url('../../static/mxdefault/#{$image}')
+        }
+    }
+}
